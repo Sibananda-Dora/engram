@@ -1,0 +1,23 @@
+# Neuron Lab backend dependencies
+# Verified in neuron-lab/.venv on 2026-11-05:
+#   Python 3.13.2 · Windows 11 · torch 2.15.0+cu132 · CUDA runtime 13.2
+#
+# NOTE: the +cu132 torch build is not the default PyPI wheel. Install it from the
+# matching PyTorch CUDA wheel index first, then install the rest:
+#   pip install torch==2.15.0+cu132 --index-url <pytorch cu132 wheel index>
+#   pip install -r requirements.txt
+
+fastapi==0.162.0
+uvicorn==0.54.0
+pydantic==2.14.2
+torch==2.15.0+cu132
+torchvision==0.29.2+cu132
+transformers==5.22.1
+accelerate==1.15.0
+safetensors==0.8.0
+scipy==1.18.1
+scikit-learn==1.9.1
+python-multipart==0.0.33
+
+# Test/verification only:
+#   httpx==0.28.1  (FastAPI TestClient)

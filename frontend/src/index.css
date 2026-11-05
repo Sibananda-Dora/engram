@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0e1a;
+  --bg-2: #0f1424;
+  --panel: rgba(15, 20, 40, 0.55);
+  --panel-strong: rgba(20, 28, 55, 0.75);
+  --border: rgba(120, 160, 255, 0.18);
+  --border-strong: rgba(120, 160, 255, 0.35);
+  --text: #e6ecff;
+  --text-dim: #9aa6cc;
+  --accent-a: #00d4ff;   /* model A cyan */
+  --accent-b: #ff3ea5;   /* model B magenta */
+  --accent-gold: #ffd166; /* transplanted */
+  --accent-green: #3ddc97;
+  --accent-red: #ff5c7a;
+  --glow-a: 0 0 24px rgba(0, 212, 255, 0.35);
+  --glow-b: 0 0 24px rgba(255, 62, 165, 0.35);
+  --glow-gold: 0 0 24px rgba(255, 209, 102, 0.4);
+}
+
+* { box-sizing: border-box; }
+
+:focus-visible {
+  outline: 2px solid var(--accent-a);
+  outline-offset: 2px;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+}
+
+body {
+  background:
+    radial-gradient(1200px 800px at 20% 10%, rgba(0, 212, 255, 0.08), transparent 60%),
+    radial-gradient(1000px 700px at 80% 90%, rgba(255, 62, 165, 0.08), transparent 60%),
+    var(--bg);
+}
+
+.glass {
+  background: var(--panel);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.glass-strong {
+  background: var(--panel-strong);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+}
+
+.scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+.scrollbar::-webkit-scrollbar-thumb { background: rgba(120,160,255,0.25); border-radius: 4px; }
+.scrollbar::-webkit-scrollbar-track { background: transparent; }
+
+.neuron-node { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.neuron-node:hover { transform: scale(1.15); }
+
+.dragging-neuron {
+  cursor: grabbing;
+  filter: drop-shadow(0 0 12px rgba(255,209,102,0.8));
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+.scanline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent, rgba(0,212,255,0.06), transparent);
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}

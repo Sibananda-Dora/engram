@@ -1,0 +1,55 @@
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# Node & Frontend Build
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite-temp/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Large Model Weights & Checkpoints (Never commit model weights)
+backend/exported_models/*
+!backend/exported_models/.gitkeep
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+*.onnx
+
+# Local Data Logs (Optional to ignore)
+backend/data/*.jsonl
+!backend/data/.gitkeep
+
+# Knowledge base / Brain (keep local only)
+brain_base/
+*brain*
+
+
+# Environment & Secrets
+.env
+.env.local
+*.local
+
+# OS & Editor Metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+.playwright-mcp/
